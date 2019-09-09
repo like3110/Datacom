@@ -1,0 +1,12 @@
+{% extends 'db_cfg_list.html' %}
+{% load staticfiles %}
+
+{% block title %}
+    {{ db_cfg.name }}
+{% endblock %}
+{% block content %}
+    <h3>数据库名称：{{ db_cfg.name }}</h3>
+    <hr>
+    <p>数据库IP：{{ db_cfg.ip_address }}</p>
+{% endblock %}
+
