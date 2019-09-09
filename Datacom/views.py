@@ -7,12 +7,6 @@ from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 
 
-@login_required()
-def home(request):
-    context = {'msg': '数据接入平台'}
-    return render(request, "home.html", context)
-
-
 def login(request):
     if request.method == 'post':
         login_form = LoginForm(request.POST)
@@ -26,6 +20,13 @@ def login(request):
     return render(request, 'login.html', context)
 
 
+@login_required()
+def home(request):
+    context = {'msg': '数据接入平台'}
+    return render(request, "home.html", context)
+
+
+@login_required()
 def register(request):
     if request.method == 'POST':
         reg_form = RegForm(request.POST)
