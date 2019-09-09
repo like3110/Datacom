@@ -1,10 +1,13 @@
 # -*-coding:utf-8-*-
 from django.shortcuts import render, redirect
-from .forms import LoginForm
+from django.contrib.auth.models import User
+from .forms import LoginForm, RegForm
 from django.contrib import auth
 from django.urls import reverse
+from django.contrib.auth.decorators import login_required
 
 
+@login_required()
 def home(request):
     context = {'msg': '数据接入平台'}
     return render(request, "home.html", context)
@@ -40,6 +43,5 @@ def register(request):
     else:
         reg_form = RegForm()
 
-    context = {}
-    context['reg_form'] = reg_form
+    context = {'reg_form': reg_form}
     return render(request, 'register.html', context)

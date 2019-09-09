@@ -20,8 +20,9 @@ from django.urls import include, path
 from . import views
 
 urlpatterns = [
-    path('', views.home, name='home'),
-    path('login/', views.login, name='login'),
+    path('', views.login, name='login'),
+    path('home/', views.login, name='home'),
     path('admin/', admin.site.urls, name='admin'),
+    path('register/', views.register, name='register'),
     path('dbmanage/', include('DbManage.urls'))
 ]
