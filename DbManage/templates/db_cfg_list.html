@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
+{% load django_tables2 %}
 {% block title %}
     数据库配置列表
 {% endblock %}
@@ -16,21 +17,16 @@
         <div class="row">
             <div class="col-xs-12 col-sm-8 col-md-9 col-lg-10">
                 <div class="panel panel-default">
-                    <div class="panel-heading">{% block db_title %}数据库列表{% endblock %}</div>
+                    <div class="panel-heading">
+                        {% block db_title %}数据库列表{% endblock %}
+                        <a href="{% url 'create_db' %}">
+                            <button class="btn btn-primary" type="button">
+                                新建
+                            </button>
+                        </a>
+                    </div>
                     <div class="panel-body">
-                        {% for db in db_list %}
-                            <div class="db-list">
-                                <h3>
-                                    <a href="{% url 'get_db_cfg_detail' db.pk %}">
-                                        {{ db.name }}
-                                    </a>
-                                </h3>
-                            </div>
-                        {% empty %}
-                            <div class="db-list">
-                                <h3>------暂未配置数据库------</h3>
-                            </div>
-                        {% endfor %}
+                        {% render_table table %}
                     </div>
                 </div>
             </div>

@@ -1,12 +1,19 @@
-ul.db-manage-type{
+ul.db-manage-type {
     list-style-type: none;
 }
-div.db-list:not(:last-child){
+
+div.db-list:not(:last-child) {
     margin-bottom: 2em;
     padding-bottom: 1em;
     border-bottom: 1px solid #eeeeee;
 }
-div.db-list h3{
+
+div.db-list h3 {
     margin-top: 0.5em;
 
+}
+
+div.butt-group a {
+    margin-left: 1em;
+    margin-right: 1em;
 }

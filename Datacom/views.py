@@ -8,12 +8,12 @@ from django.contrib.auth.decorators import login_required
 
 
 def login(request):
-    if request.method == 'post':
+    if request.method == 'POST':
         login_form = LoginForm(request.POST)
         if login_form.is_valid():
             user = login_form.cleaned_data['user']
             auth.login(request, user)
-            return redirect(request.GET.get('from', reverse('home')))
+            return redirect(request.GET.get('next', reverse('home')))
     else:
         login_form = LoginForm()
     context = {'login_form': login_form}
