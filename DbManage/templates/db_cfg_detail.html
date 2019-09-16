@@ -2,11 +2,11 @@
 {% load staticfiles %}
 
 {% block title %}
-    {{ db_cfg.name }}
+    {{ db_list.name }}
 {% endblock %}
 {% block content %}
-    <h3>数据库名称：{{ db_cfg.name }}</h3>
+    <h3>数据库名称：{{ db_list.name }}</h3>
     <hr>
-    <p>数据库IP：{{ db_cfg.ip_address }}</p>
+    <p>数据库IP：{{ db_list.ip_address }}</p>
 {% endblock %}
 

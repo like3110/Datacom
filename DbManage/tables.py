@@ -1,15 +1,14 @@
 # -*-coding:utf-8-*-
 import django_tables2 as tables
-from django_tables2.utils import A
 from .models import DbCfgDetail
 
 
 class DbCfgDetailTable(tables.Table):
     # link = tables.LinkColumn(viewname="get_db_cfg_detail", text="修改", verbose_name='操作', args=[A("pk")])
     action = tables.TemplateColumn(
-        "<div class=\"butt-group\"><a href=\"{% url 'get_db_cfg_detail' record.pk %}\">"
+        "<div class=\"butt-group\"><a href=\"{% url 'modify_db' record.pk %}\">"
         "<button class=\"btn btn-primary\" type=\"button\">修改</button></a>"
-        "<a href=\"{% url 'get_db_cfg_detail' record.pk %}\">"
+        "<a href=\"{% url 'delete_db' record.pk%}\">"
         "<button class=\"btn btn-primary\" type=\"button\">删除</button></a></div>",
         verbose_name="操作", orderable=False)
 

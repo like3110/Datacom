@@ -1,0 +1,23 @@
+{% extends 'db_cfg_list.html' %}
+{% load staticfiles %}
+
+{% block title %}
+    {{ db_list.name }}
+{% endblock %}
+{% block content %}
+    <p>{{ db_list.name }} : {{ msg }}</p>
+    <p>还有<span id="CountDown">5</span>秒跳转到登录界面...</p>
+{% endblock %}
+{% block script_extends %}
+    <script type="text/javascript">
+        var i = 6;
+
+        function showtime() {
+            i = i - 1;
+            document.getElementById("CountDown").innerHTML = i;
+            if (i > 1) {
+                setTimeout('showtime()', 1000);
+            }
+        }
+    </script>
+{% endblock %}
